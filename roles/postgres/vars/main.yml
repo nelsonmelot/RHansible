@@ -1,0 +1,6 @@
+---
+# vars file for roles/postgres
+postgres_pkg:
+  - postgresql-server
+postgres_srv:
+  - postgresql

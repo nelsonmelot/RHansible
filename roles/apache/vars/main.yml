@@ -1,0 +1,6 @@
+---
+# vars file for roles/apache
+apache_pkg:
+  - httpd
+apache_srv:
+  - httpd

@@ -1,0 +1,7 @@
+---
+# vars file for roles/haproxy
+haproxy_pkg:
+  - httpie
+  - haproxy
+haproxy_srv:
+  - haproxy

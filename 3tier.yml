@@ -1,0 +1,21 @@
+- hosts: all
+  become: yes
+  roles:
+    - configuracion
+
+- hosts: frontends
+  become: yes
+  roles:
+    - haproxy
+
+- hosts: apps
+  become: yes
+  roles:
+    - tomcat
+    - apache
+    - postgres
+
+- hosts: appdbs
+  become: yes
+  roles:
+    - postgres

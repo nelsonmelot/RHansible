@@ -1,0 +1,23 @@
+---
+# tasks file for roles/configuracion
+- name: Adicionar Repos Red Hat
+  yum_repository: 
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    baseurl: "{{ item.baseurl }}"
+    enabled: yes
+    gpgcheck: no
+    file: open_three-tier-app
+  with_items: "{{ repos_redhat }}"
+
+- name: Adicionar Repo Epel
+  yum_repository: 
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    baseurl: "{{ item.baseurl }}"
+    mirrorlist: "{{ item.mirrorlist }}"
+    failovermethod: "{{ item.failovermethod }}"
+    enabled: yes
+    gpgcheck: no
+    file: open_three-tier-app
+  with_items: "{{ repos_epel }}"

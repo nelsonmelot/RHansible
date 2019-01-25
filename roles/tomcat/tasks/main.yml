@@ -1,0 +1,26 @@
+---
+- name: Instalar paquetes tomcat
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ tomcat_pkg }}"
+
+- name: Crear directorio ansible tomcat
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items: "{{ tomcat_path }}"
+
+- name: Copiar index.html en path ansible
+  template:
+    src: index.html.j2
+    dest: "{{ item }}/index.html"
+    mode: 0644
+  with_items: "{{ tomcat_path }}"
+
+- name: Iniciar servicio tomcat
+  service: 
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items: "{{ tomcat_srv }}"

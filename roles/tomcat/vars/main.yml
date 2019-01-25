@@ -1,0 +1,8 @@
+---
+# vars file for roles/tomcat
+tomcat_pkg:
+  - tomcat
+tomcat_srv:
+  - tomcat
+tomcat_path:
+  - /usr/share/tomcat/webapps/ansible

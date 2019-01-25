@@ -1,0 +1,6 @@
+---
+- name: reiniciar_haproxy
+  service:
+    name: "{{ item }}"
+    state: restarted
+  with_items: "{{ haproxy_srv }}"
